@@ -31,7 +31,7 @@ PHP 5.3.X环境下测试没问题，7.x无法正常运行，其它版本未测�
 
 ---------------Todo List-----------------
 1）我也是没搞懂，怎么代码里是写死的http协议？我说怎么配置https，主页总是有2个js走的请求http协议报错（http可以引用https，https无法引用http）。mark一下，后面看动态适配一下——现在先无脑改成https了，能正常运行。
-    ^C[root@iZj6c485z7g0zfsjasatw7Z ~]# grep -rn "\$db_bbsurl="
+    [root@iZj6c485z7g0zfsjasatw7Z ~]# grep -rn "\$db_bbsurl="
     columns.php:16:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
     data/bbscache/config.php:8:$db_bbsurl='https://www.YOUR_DOMAIN.com';
     global.php:58:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
