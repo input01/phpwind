@@ -1,32 +1,30 @@
-# phpwind
+# phpwind 5.3经典版
 
 安装步骤
 ========
+PHP 5.3.X环境下测试没问题，7.x无法正常运行，其它版本未测。
 
-1. 解压下载的安装包;
-2. 上传upload文件夹中的文件到对应网站根目录;
-3. 执行安装文件：您的域名/install.php
+(1) Linux 或 Freebsd 服务器下安装方法
+    第一步: 使用ftp工具中的二进制模式,将该软件包里的 upload 目录及其文件上传到您的空间
+             假设上传后目录仍旧为 upload
+    第二步: 先确认以下目录或文件属性为 (777) 可写模式
+     data
+     data/sql_config.php
+     data/bbscache
+     data/groupdb
+     data/style
+     attachment
+     attachment/upload
+     attachment/photo
+     attachment/cn_img
+     htm_data
+     template
+     template/wind
+     template/admin
+    第三步: 运行 http://yourwebsite/upload/install.php 安装程序,填入服务器配置信息与创始人
+             相关资料, 完成安装!
 
-bug提交
-=======
-
-http://www.phpwind.net/thread-htm-fid-54.html
-
-发展建议
-========
-
-http://www.phpwind.net/thread-htm-fid-39.html
-
-关于移动版
-=========
-
-http://www.phpwind.net/read/3418959
-
-常见错误
-========
-
-1. pdo_mysql未安装
-
-解决方法：修改本地php.ini配置，以Win下的php为例，找到`;extension=php_pdo_mysql.dll ;extension=php_pdo.dll`
-去除前面的分号“;”。重启apache或php-fpm服务即可。
-
+(2) Windows 服务器下安装方法
+     第一步: 将解压后的文件上传至你的空间，保持目录结构不变，假设目录为upload
+     第二步: 运行 http://yourwebsite/upload/install.php 安装程序,填入服务器配置信息与创始人
+             相关资料, 完成安装!
