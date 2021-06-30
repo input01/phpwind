@@ -28,11 +28,10 @@ PHP 5.3.X环境下测试没问题，7.x无法正常运行，其它版本未测�
      第一步: 将解压后的文件上传至你的空间，保持目录结构不变，假设目录为upload
      第二步: 运行 http://yourwebsite/upload/install.php 安装程序,填入服务器配置信息与创始人
              相关资料, 完成安装!
-
----------------Todo List-----------------
-1）我也是没搞懂，怎么代码里是写死的http协议？我说怎么配置https，主页总是有2个js走的请求http协议报错（http可以引用https，https无法引用http）。mark一下，后面看动态适配一下——现在先无脑改成https了，能正常运行。
-    [root@iZj6c485z7g0zfsjasatw7Z ~]# grep -rn "\$db_bbsurl="
-    columns.php:16:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
-    data/bbscache/config.php:8:$db_bbsurl='https://www.YOUR_DOMAIN.com';
-    global.php:58:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
-    simple/index.php:21:$db_bbsurl=substr($db_bbsurl,0,-7);
+(3) Todo List
+我也是没搞懂，怎么代码里是写死的http协议？我说怎么配置https，主页总是有2个js走的请求http协议报错（http可以引用https，https无法引用http）。mark一下，后面看动态适配一下——现在先无脑改成https了，能正常运行。
+[root@iZj6c485z7g0zfsjasatw7Z ~]# grep -rn "\$db_bbsurl="
+columns.php:16:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
+data/bbscache/config.php:8:$db_bbsurl='https://www.YOUR_DOMAIN.com';
+global.php:58:$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
+simple/index.php:21:$db_bbsurl=substr($db_bbsurl,0,-7);
