@@ -6,7 +6,7 @@ print <<<EOT
 .signature{height:expression(this.scrollHeight>parseInt(this.currentStyle.maxHeight)?this.currentStyle.maxHeight:"auto");}
 .tips li{list-style:none;width:30%;padding:0 5px;float:left;overflow: hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
-<div class="t3" style="margin-top:8px"><table width="100%" cellspacing="0" cellpadding="0" align="center">
+<div class="t3" style="margin:8px 0"><table width="100%" cellspacing="0" cellpadding="0" align="center">
 	<tr><td>$msg_guide</td></tr>
 </table></div>
 $forumlist
@@ -60,7 +60,7 @@ EOT;
 -->
 <!--ads end-->
 <div class="t3"><table width="100%" align="center" cellspacing="0" cellpadding="0">
-	<tr><td align="left">$pages</td><td align="right"><a href="post.php?action=reply&fid=$fid&tid=$tid"><img src="$imgpath/$stylepath/reply.png" /></a> <a href="post.php?fid=$fid" onMouseOver="mouseover_open('menu_post','td_post','4');"><img src="$imgpath/$stylepath/post.png" id="td_post" /></a></td></tr>
+	<tr><td align="left">$pages</td><td align="right"><div class="pages"><a href="post.php?action=reply&fid=$fid&tid=$tid">回帖</a><a href="post.php?fid=$fid">发布主题</a></div></td></tr>
 </table></div>
 <div id="menu_post" class="menu tac f14" style="display:none;"><ul style="width:100px;">
 <!--
@@ -88,7 +88,7 @@ EOT;
 <input type="hidden" name="fid" value="$fid" />
 <input type="hidden" name="tid" value="$tid" />
 <div class="t" style="margin-bottom:0px; border-bottom:0"><table cellspacing="0" cellpadding="0" width="100%">
-	<tr><th class="h"><b>本页主题:</b> $subject</th><td class="h" style="text-align:right;"><span> <a class="fn" href="$db_bbsurl/simple/index.php?t{$tid}.html"> 打印</a> | <a class="fn" style="cursor:pointer;" onclick="Addtoie('$db_bbsurl/read.php?fid=$fid&tid=$tid','$db_bbsname_a--$favortitle');"> 加为IE收藏</a> | <a class="fn" href="profile.php?action=favor&job=add&tid=$tid">收藏主题</a> | <a class="fn" href="job.php?rd_previous=1&fid=$fid&tid=$tid&fpage=$fpage&goto=previous">上一主题</a> | <a class="fn" href="job.php?rd_previous=1&fid=$fid&tid=$tid&fpage=$fpage&goto=next">下一主题</a></span> </td>
+	<tr><th class="h"><b>本页主题:</b> $subject</th><td class="h" style="text-align:right;"><span><a href="javascript:fontsizeToggle()">字体大小</a><span>  <a class="fn" href="profile.php?action=favor&job=add&tid=$tid">收藏主题</a> | <a class="fn" href="job.php?rd_previous=1&fid=$fid&tid=$tid&fpage=$fpage&goto=previous">上一主题</a> | <a class="fn" href="job.php?rd_previous=1&fid=$fid&tid=$tid&fpage=$fpage&goto=next">下一主题</a></span></span> </td>
 	</tr>
 	<tr><td></td></tr>
 	<tr class="tr2"><td colspan="2" class="tar">
@@ -147,7 +147,6 @@ if($read[honor]){print <<<EOT
 EOT;
 }print <<<EOT
 -->
-		<img src="$imgpath/$stylepath/level/$read[lpic].gif" />
 <!--
 EOT;
 if($db_showonline && $read[thisvisit]+$db_onlinetime*1.5>$timestamp){print <<<EOT
@@ -233,7 +232,7 @@ EOT;
 		$read[loction]
 		注册时间:{$read[regdate]}<br />
 		最后登录:{$read[lastlogin]} </th>
-		<th height="100%" class="r_one" valign="top" $table_id style="padding:5px 15px 0 15px; border:0;width:80%; overflow:hidden">
+		<th height="100%" valign="top" $table_id style="padding:5px 15px 0 15px; border:0;width:80%; overflow:hidden">
 			<div class="tiptop">
 <!--
 EOT;
@@ -244,12 +243,12 @@ if($db_hackdb[blog][2] && $bg_ifopen){print <<<EOT
 EOT;
 }print <<<EOT
 -->
-			<a href="profile.php?action=show&uid=$read[authorid]"> <img src="$imgpath/$stylepath/read/profile.gif" align="absmiddle" alt="查看作者资料" /></a> <a href="message.php?action=write&touid=$read[authorid]"> <img src="$imgpath/$stylepath/read/message.gif" align="absmiddle" alt="发送短消息" /></a> <a href="post.php?action=quote&fid=$fid&tid=$tid&pid=$read[pid]&article=$read[lou]"><img src="$imgpath/$stylepath/read/quote.gif" align="absmiddle" alt="引用回复这个帖子" /></a> <a href="sendemail.php?action=tofriend&tid=$tid"><img src="$imgpath/$stylepath/read/emailto.gif" align="absmiddle" alt="推荐此帖" /></a> <a href="post.php?action=modify&fid=$fid&tid=$tid&pid=$read[pid]&article=$read[lou]"><img src="$imgpath/$stylepath/read/edit.gif" align="absmiddle" /></a>
+			<a href="profile.php?action=show&uid=$read[authorid]">资料</a> <a href="message.php?action=write&touid=$read[authorid]">短信</a> <a href="post.php?action=quote&fid=$fid&tid=$tid&pid=$read[pid]&article=$read[lou]">引用</a> <a href="sendemail.php?action=tofriend&tid=$tid">推荐</a> <a href="post.php?action=modify&fid=$fid&tid=$tid&pid=$read[pid]&article=$read[lou]">编辑</a>
 <!--
 EOT;
 if($gp_allowreport){print <<<EOT
 -->
-			<a href="job.php?action=report&tid=$tid&pid=$read[pid]" target="_blank"><img src="$imgpath/$stylepath/read/report.gif" align="absmiddle" /></a>
+			<a href="job.php?action=report&tid=$tid&pid=$read[pid]" target="_blank">举报</a>
 <!--
 EOT;
 }if($read[payemail]){
@@ -341,7 +340,7 @@ EOT;
 			<div class="tpc_content" $a_id>$read[content]</div>
 		</th>
 	</tr>
-	<tr class="tr1 r_one">
+	<tr class="tr1">
 		<th style="vertical-align:bottom;padding-left:1.5%;border:0">
 <!--
 EOT;
@@ -424,27 +423,27 @@ EOT;
 EOT;
 if($admincheck || $_G['markable']){print <<<EOT
 -->
-			<a href="job.php?action=showping&tid=$tid&pid=$read[pid]&page=$page"><img src="$imgpath/$stylepath/read/rate.gif" alt="评分" /></a>
+			<a href="job.php?action=showping&tid=$tid&pid=$read[pid]&page=$page">评分</a>
 <!--
 EOT;
 }if($admincheck || ($groupid!=5 && $SYSTEM['banuser'])){print <<<EOT
 -->
-			<a href="masingle.php?action=banuser&fid=$fid&tid=$tid&pid=$read[pid]"> <img src="$imgpath/$stylepath/read/postban.gif" alt="禁言" /></a>
+			<a href="masingle.php?action=banuser&fid=$fid&tid=$tid&pid=$read[pid]">禁言</a>
 <!--
 EOT;
 }if($admincheck || ($groupid!=5 && $SYSTEM['shield'])){print <<<EOT
 -->
-			<a href="masingle.php?action=shield&fid=$fid&tid=$tid&pid=$read[pid]&page=$page"> <img src="$imgpath/$stylepath/read/shield.gif" alt="屏蔽单帖" /></a>
+			<a href="masingle.php?action=shield&fid=$fid&tid=$tid&pid=$read[pid]&page=$page">屏蔽单帖</a>
 <!--
 EOT;
 }if($admincheck || ($groupid!=5 && $SYSTEM['remind'])){ print <<<EOT
 -->
-			<a href="masingle.php?action=remind&fid=$fid&tid=$tid&pid=$read[pid]&page=$page"> <img src="$imgpath/$stylepath/read/remind.gif" alt="提醒管理" /></a>
+			<a href="masingle.php?action=remind&fid=$fid&tid=$tid&pid=$read[pid]&page=$page">提醒管理</a>
 <!--
 EOT;
 }print <<<EOT
 -->
-			<a href="javascript:scroll(0,0)"><img src="$imgpath/$stylepath/read/top.gif" alt="顶端" /></a> </span>
+			<a href="javascript:scroll(0,0)">TOP</a> </span>
 			Posted: $read[postdate] | $read[ip] $read[ipfrom]
 <!--
 EOT;
@@ -474,7 +473,6 @@ $key=1;$db_union[2]='';}}print <<<EOT
 		<td valign="center" align="right"><select onchange="Fjump(this.options[this.selectedIndex].value)"><option value="" selected>快速跳至</option>$forumcache</select></td></form>
 	</tr>
 	<tr><td style="padding-top: 12px;text-align: left;"><img src="$imgpath/$stylepath/index/home.gif" align="absbottom" /> <b><a href="$db_bfn">$db_bbsname</a> &raquo; <a href="thread.php?fid=$fid&page=$fpage">$foruminfo[name]</a></b> </td>
-	<td style="padding-top: 12px;text-align: right;"><a href="post.php?action=reply&fid=$fid&tid=$tid"><img src="$imgpath/$stylepath/reply.png" /></a> <a href="post.php?fid=$fid" onMouseOver="mouseover_open('menu_post','td_post1','4');"><img src="$imgpath/$stylepath/post.png" id="td_post1" /></a></td>
 	</tr>
 </table></div>
 <script language="JavaScript">

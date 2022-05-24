@@ -55,7 +55,7 @@ if(strpos($_SERVER['PHP_SELF'],$db_dir)!==false){
 }else{
 	$tmp=$_SERVER['PHP_SELF'];
 }
-$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
+$db_bbsurl="https://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
 
 $fid	  = (int)$fid;
 $tid	  = (int)$tid;
@@ -360,7 +360,7 @@ function footer(){
 	if ($db_footertime == 1){
 		$t_array	= explode(' ',microtime());
 		$totaltime	= number_format(($t_array[0]+$t_array[1]-$P_S_T),6);
-		$wind_spend	= "Total $totaltime(s) query $qn,";
+		$wind_spend	= "用时 $totaltime(s)x $qn,";
 	}
 	$ft_time=get_date($timestamp,'m-d H:i');
 	$db_icp && $db_icp = $db_icpurl ? "<a href=\"$db_icpurl\">$db_icp</a>" : "<a href=\"http://www.miibeian.gov.cn\">$db_icp</a>";

@@ -83,7 +83,6 @@ $rawbbsname = rawurlencode($db_bbsname);
 $hash=md5($_SERVER['HTTP_HOST'].$_SERVER['HTTP_USER_AGENT'].$totalmember.$threads.$posts.$wind_version.$wind_repair.$db_charset);
 print <<<EOT
 -->
-<script language="JavaScript" src="http://nt.phpwind.com/notice.php?bbsname=$rawbbsname&totalmember=$totalmember&threads=$threads&posts=$posts&version=$wind_version&repair=$wind_repair&charset=$db_charset&sysversion=$sysversion&dbversion=$dbversion&url=$s_url&hash=$hash"></script>
 <!--
 EOT;
 }?>-->

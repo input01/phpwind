@@ -111,13 +111,12 @@ function forumindex($fup){
 function headguide($guidename){
 	global $db_menu,$db_bbsname,$db_bfn,$cateid,$fid,$imgpath,$stylepath,$db_menu;
 	
-	if($db_menu>1){
-		$headguide = "<img src=\"$imgpath/$stylepath/index/home_menu.gif\" align=\"absmiddle\" id=\"td_cate\" onclick=\"click_open('menu_cate','td_cate');\" onMouseOver=\"mouseover_open('menu_cate','td_cate');\" style=\"cursor:pointer;\" /> <b>";
-	} else{
-		$headguide = "<img src=\"$imgpath/$stylepath/index/home.gif\" align=\"absmiddle\" /> <b>";
-	}
-
-	$headguide .= "<a href=\"$db_bfn\">$db_bbsname</a>";
+	// if($db_menu>1){
+	// 	$headguide = "<img src=\"$imgpath/$stylepath/index/home_menu.gif\" align=\"absmiddle\" id=\"td_cate\" onclick=\"click_open('menu_cate','td_cate');\" onMouseOver=\"mouseover_open('menu_cate','td_cate');\" style=\"cursor:pointer;\" /> <b>";
+	// } else{
+	// 	$headguide = "<img src=\"$imgpath/$stylepath/index/home.gif\" align=\"absmiddle\" /> <b>";
+	// }
+	$headguide = ".:. <a href=\"$db_bfn\">$db_bbsname</a>";
 	
 	if(!is_array($guidename)){
 		return array($headguide." &raquo; ".$guidename,'');

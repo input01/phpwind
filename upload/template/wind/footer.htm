@@ -6,18 +6,19 @@
 EOT;
 if(!$db_union[6] && @in_array('1',$db_yh) && SCR!='post'){print <<<EOT
 -->
-<div class="tac"><script type="text/javascript" src="http://ce.phpwind.com/src/yh.php?v=$wind_version&siteid={$GLOBALS[db_sitehash]}&type=1"></script></div>
 <!--
 EOT;
 }print <<<EOT
 -->
 <center class="gray">
-$footer_ad<small>$wind_spend Time now is:$ft_time, $ft_gzip $db_icp<br />
-Powered by <a href="http://www.phpwind.net/" target="_blank"><b>PHPWind</b></a> <a href="http://www.phpwind.net/" target="_blank"><b style="color:#FF9900">v$wind_version</b></a> <a href="http://www.phpwind.com/certificate.php?host=$_SERVER[HTTP_HOST]"><b>Certificate</b></a> Code &copy; 2003-07 <a href="http://www.phpwind.com/" target="_blank"><b>PHPWind.com</b></a> Corporation</small>
+<a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">电脑版</font></font></a>
+<a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">手机版</font></font></a>
+<a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户端</font></font></a>
+<br />
+$footer_ad<small>$wind_spend $ft_time</small>
+<br />
 </center><br />
-<div id="footer">
-	<span class="f12 fl">{$GLOBALS['db_foot']}</span><a href="$db_ceoconnect">Contact us</a> | <a href="wap/index.php">Wap</a> | <a href="javascript:scroll(0,0)">Top</a>
-</div>
+<script type="text/javascript" language="JavaScript" src="js/jquery.3.2.1.min.js"></script>
 </body></html>
 <!--
 EOT;

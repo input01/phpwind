@@ -89,7 +89,7 @@ if($page==1){
 		$NT_A=array_shift($notice_A);
 		$NT_A['rawauthor']=rawurlencode($NT_A['author']);
 		$NT_A['startdate']=get_date($NT_A['startdate']);
-		!$NT_A['url'] && $NT_A['url'] = "notice.php?fid=$NT_A[fid]#$NT_A[aid]";
+		# !$NT_A['url'] && $NT_A['url'] = "notice.php?fid=$NT_A[fid]#$NT_A[aid]";
 	}
 	if($notice_C[$cateid]){
 		$ifsort=1;

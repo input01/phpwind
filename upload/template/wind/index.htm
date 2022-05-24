@@ -119,8 +119,8 @@ if($db_todaypost==1){print <<<EOT
 EOT;
 }print <<<EOT
 -->
-		最高日 $hposts 帖 | <a href="job.php?action=sign">标记已读</a> | <a href="search.php?digest=1" target="_blank">精华区</a> | <a href="search.php?sch_time=all&orderway=lastpost&asc=desc&newatc=1" target="_blank">最新帖子</a> <a href="rss.php" target="_blank" title="RSS订阅本版面最新帖子"><img align="absmiddle" src="$imgpath/$stylepath/rss.png" /></a><br />
-		共 $topics 篇主题 | $article  篇帖子 | $totalmember  位会员 | 欢迎新会员 <a href="profile.php?action=show&username=$rawnewuser" target="_blank">$newmember</a>
+		最高日 $hposts 帖 | <a href="job.php?action=sign">标记已读</a> | <a href="search.php?digest=1" target="_blank">精华区</a> | <a href="search.php?sch_time=all&orderway=lastpost&asc=desc&newatc=1" target="_blank">最新帖子</a> <a href="rss.php" target="_blank" title="RSS订阅本版面最新帖子">RSS</a><br />
+		共 $topics 篇主题 | $article  篇帖子 | $totalmember  位会员 | 欢迎新会员 <a href="profile.php?action=show&username=$rawnewuser" style="color: red;" target="_blank">$newmember</a>
 		</td>
 	</tr>
 </table></div>
@@ -253,8 +253,8 @@ EOT;
 foreach($forumdb[$cate[fid]] as $key=>$forums){
 print <<<EOT
 -->
-	<tr class="tr3 f_one" onMouseOver="this.className='tr3 f_two'" onMouseOut="this.className='tr3 f_one'">
-		<td class="icon tac" width="4%"><a href="thread.php?fid=$forums[fid]" target="_blank"><img src="$imgpath/$stylepath/$forums[pic].gif" /></a></td>
+	<tr class="tr3 t_one tac">
+		<td class="icon tac" width="4%"><a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.:.</font></font></a></td>
 		<th><a href="thread.php?fid=$forums[fid]" target="_blank">$forums[llogo]</a><h2><a href="thread.php?fid=$forums[fid]">$forums[name]</a></h2>
 <!--
 EOT;
@@ -328,75 +328,9 @@ EOT;
 }}}print <<<EOT
 -->
 <script language="JavaScript" src="$imgpath/Deploy.js"></script>
-<div class="t">
-<table cellspacing="0" cellpadding="0" width="100%">
-<tr>
-	<th colspan="2" class="h"><a style="float:right" href="#" onclick="return IndexDeploy('info',0)"><img id="img_info" src="$imgpath/$stylepath/index/cate_$cate_img.gif" /></a>论坛相关</th>
-</tr><tr></tr>
-<tbody id="cate_info" style="$cate_info">
-<!--
-EOT;
-if($db_indexlink==1){print <<<EOT
--->
-	<tr class="tr2"><td colspan="2"> &raquo; 友情链接</td></tr>
-<!--
-EOT;
-if($sharelink[0] && is_array($sharelink[0])){
-foreach($sharelink[0] as $key=>$share){ print <<<EOT
--->
-	<tr class="tr3"><td class="f_two tac" width="4%"><img src="$imgpath/$stylepath/index/share.gif" /></td><th class="f_one" width="96%" style="word-break: keep-all">$share</th>
-	</tr>
-<!--
-EOT;
-}} print <<<EOT
--->
-	<tr class="tr3"><td class="f_two tac" width="4%"><img src="$imgpath/$stylepath/index/share.gif" /></td><th class="f_one" width="96%" style="word-break: keep-all">$sharelink[1]</th>
-	</tr>
-<!--
-EOT;
-}$db_indexshowbirth==1 && require_once(R_P.'require/birth.php');
-print <<<EOT
--->
-</tbody>
-<tr class="tr4">
-	<td colspan="2">&raquo; 在线用户<a name="online"></a> -  共 $usertotal 人在线,$userinbbs 位会员,$guestinbbs 位访客,最多 $higholnum 人发生在 $mostinbbstime </td>
-</tr>
-<tr class="tr3">
-	<td class="f_two tac" style="padding:0" width="4%"><img src="$imgpath/$stylepath/index/online.gif" /></td>
-	<td class="f_one tal" style="padding:15px 20px"><div>
-<!--
-EOT;
-foreach($showgroup as $key=>$value){
-if($value && file_exists(D_P."$imgpath/$stylepath/group/$value.gif")){print <<<EOT
--->
-		<img src="$imgpath/$stylepath/group/$value.gif" align="absmiddle" /> $ltitle[$value]&nbsp; &nbsp; 	
-<!--
-EOT;
-}}print <<<EOT
--->
-		<img src="$imgpath/$stylepath/group/6.gif" align="absmiddle" /> 普通会员
-<!--
-EOT;
-if($doonlinefu){
-$pw_forum='论坛';$pw_time='时间';$pw_hide='隐身';$pw_hideman='隐身会员';
-include_once(R_P.'require/showonline.php');
-print <<<EOT
--->
-		<a name="online"></a> [<a href="index.php?online=no#online">关闭在线列表</a>] </div>
-	<div style="padding:5px 0"><hr class="hr" color="#D3EAF0" size="1"></div>
-	$index_whosonline
-<!--
-EOT;
-}else{print <<<EOT
--->
-	<a name="online"></a> [<a href="index.php?online=yes#online">打开在线列表</a>]
 </div>
-<!--
-EOT;
-}print <<<EOT
--->
-</td></tr></table></div>
 <!--
 EOT;
 $head_pop && require PrintEot($head_pop);
 ?>-->
+

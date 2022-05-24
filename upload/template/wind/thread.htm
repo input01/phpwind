@@ -1,7 +1,7 @@
 <!--<?php print <<<EOT
 -->
 <div class="t3" style="margin:8px auto"><table width="100%" cellspacing="0" cellpadding="0" align="center">
-	<tr><td>$msg_guide <a href="rss.php?fid=$fid" target="_blank" title="RSS订阅本版面最新帖子"><img align="absmiddle" src="$imgpath/$stylepath/rss.png" /></a></td></tr>
+	<tr><td>$msg_guide</td></tr>
 </table></div>
 $forumlist
 <!--ads begin-->
@@ -75,7 +75,7 @@ EOT;
 print <<<EOT
 -->
 <div class="t3"><table width="100%" align="center" cellspacing="0" cellpadding="0">
-	<tr><td align="left" valign="middle">$pages</td><td style="text-align:right"><a href="post.php?fid=$fid" onMouseOver="mouseover_open('menu_post','td_post','4');"> <img src="$imgpath/$stylepath/post.png" id="td_post" /></a></td>
+	<tr><td align="left" valign="middle">$pages</td><td style="text-align:right"><div class="pages"><a href="post.php?fid=$fid" id="last">发表主题</a></div></td>
 	</tr>
 </table></div>
 <div id="menu_post" class="menu tac f14" style="display:none;">
@@ -160,14 +160,14 @@ if($page==1 && $ifsort){
 if($NT_A){
 print <<<EOT
 -->
-	<tr align="middle" class="tr3 t_two" onMouseOver="this.className='tr3 t_two'" onMouseOut="this.className='tr3 t_one'"><td class="y-style"><img src="$imgpath/$stylepath/thread/anc.gif" /></td><th>&nbsp论坛公告: <h3><a href="$NT_A[url]" class="black">$NT_A[subject]</a></h3></th><td class="tal y-style"><a href="profile.php?action=show&username=$NT_A[rawauthor]" class="bl">$NT_A[author]</a></td><td colspan="2" class="y-style"><a href="notice.php?fid=$NT_A[fid]">论坛公告</a></td><td class="tal y-style">$NT_A[startdate]</td>
+	<tr align="middle" class="tr3 t_one tac"><td class="y-style">***</td><th>&nbsp论坛公告: <h3><a href="notice.php?fid=$NT_A[fid]" class="black">$NT_A[subject]</a></h3></th><td class="tal y-style"><a href="profile.php?action=show&username=$NT_A[rawauthor]" class="bl">$NT_A[author]</a></td><td colspan="2" class="y-style"><a href="notice.php?fid=$NT_A[fid]">论坛公告</a></td><td class="y-style">$NT_A[startdate]</td>
 	</tr>
 <!--
 EOT;
 }if($NT_C){
 print <<<EOT
 -->
-	<tr align="middle" class="tr3 t_one" onMouseOver="this.className='tr3 t_two'" onMouseOut="this.className='tr3 t_one'"><td><img src="$imgpath/$stylepath/thread/anc.gif" /></td><th>&nbsp分类公告: <h3><a href="notice.php?fid=$NT_C[fid]#$NT_C[aid]" class="black">$NT_C[subject]</a></h3></th><td class="tal y-style"><a href="profile.php?action=show&username=$NT_C[rawauthor]" class="bl">$NT_C[author]</a></td><td colspan="2" class="y-style"><a href="notice.php?fid=$NT_C[fid]">分类公告</a></td><td class="y-style">$NT_C[startdate]</td>
+	<tr align="middle" class="tr3 t_one tac"><td>***</td><th>&nbsp分类公告: <h3><a href="notice.php?fid=$NT_C[fid]#$NT_C[aid]" class="black">$NT_C[subject]</a></h3></th><td class="tal y-style"><a href="profile.php?action=show&username=$NT_C[rawauthor]" class="bl">$NT_C[author]</a></td><td colspan="2" class="y-style"><a href="notice.php?fid=$NT_C[fid]">分类公告</a></td><td class="y-style">$NT_C[startdate]</td>
 	</tr>
 <!--
 EOT;
@@ -188,7 +188,7 @@ print <<<EOT
 EOT;
 }print <<<EOT
 -->
-	<tr align="center" class="tr3 t_one" onMouseOver="this.className='tr3 t_two'" onMouseOut="this.className='tr3 t_one'"><td><a title="打开新窗口" href="$thread[tpcurl]" target="_blank">$thread[status]</a></td><td style="text-align:left;padding-left:8px" id="$td_id"> $thread[adminbox]
+	<tr align="center" class="tr3 t_one tac"><td>.::</td><td style="text-align:left;padding-left:8px" id="$td_id"> $thread[adminbox]
 <!--
 EOT;
 if($thread[topped]){
@@ -312,46 +312,6 @@ EOT;
 		</select></td>
 	</form>
 	</tr>
-	<tr valign="top">
-		<form action="thread.php?fid=$fid&page=$page" method="post">
-		<td style="vertical-align:middle;">
-		<select name="search">
-			<option value="">所有主题</option>
-			<option value="digest">本版精华区</option>
-			<option value="1">1天内的主题</option>
-			<option value="2">2天内的主题</option>
-			<option value="7">1星期内的主题</option>
-			<option value="30">1个月内的主题</option>
-			<option value="60">2个月内的主题</option>
-			<option value="90">3个月内的主题</option>
-			<option value="180">6个月内的主题</option>
-			<option value="365">1年内的主题</option>
-		</select>
-<!--
-EOT;
-if($gp_alloworder){
-print <<<EOT
--->
-		<select name="orderway">
-			<option value="lastpost" $ordersel[lastpost]>最后发表</option>
-			<option value="postdate" $ordersel[postdate]>发表时间</option>
-			<option value="hits" $ordersel[hits]>人气</option>
-			<option value="replies" $ordersel[replies]>回复</option>
-		</select>
-		<select name="asc">
-			<option value="ASC" $ascsel[ASC]>升序</option>
-			<option value="DESC" $ascsel[DESC]>降序</option>
-		</select>
-<!--
-EOT;
-}
-print <<<EOT
--->
-		<input class="btn" type="button" value="提 交" onclick="this.form.submit();">
-		</td>
-	</form>
-	<td style="text-align:right;padding-top:5px"><a href="post.php?fid=$fid" onMouseOver="mouseover_open('menu_post','td_post1','4');"> <img src="$imgpath/$stylepath/post.png" id="td_post1" /></a></td>
-	</tr>
 </table></div>
 <!--
 EOT;
@@ -359,9 +319,7 @@ $thread_online && require_once PrintEot($thread_online);
 $fastpost && require_once PrintEot($fastpost);
 print <<<EOT
 -->
-<center>
-<img src="$imgpath/$stylepath/thread/topicnew.gif" /> 开放主题 <img src="$imgpath/$stylepath/thread/topichot.gif" /> 热门主题 <img src="$imgpath/$stylepath/thread/topiclock.gif" /> 锁定主题 <img src="$imgpath/$stylepath/thread/topicclose.gif" /> 关闭主题 <img src="$imgpath/$stylepath/thread/vote.gif" /> 投票主题 <img src="$imgpath/$stylepath/thread/votelock.gif" /> 锁定投票
-</center><br />
+<br />
 <script language="JavaScript">
 ifcheck = true;
 function CheckAll(form){

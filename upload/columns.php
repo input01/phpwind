@@ -13,7 +13,7 @@ if(strpos($_SERVER['PHP_SELF'],$db_dir)!==false){
 }else{
 	$tmp=$_SERVER['PHP_SELF'];
 }
-$db_bbsurl="http://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
+$db_bbsurl="https://$_SERVER[HTTP_HOST]".substr($tmp,0,strrpos($tmp,'/'));
 
 $url = ($_SERVER['HTTP_REFERER'] && strpos($_SERVER['HTTP_REFERER'],'admin.php')===false && strpos($_SERVER['HTTP_REFERER'],$db_bbsurl)!==false) ? $_SERVER['HTTP_REFERER'] : $db_bfn;
 

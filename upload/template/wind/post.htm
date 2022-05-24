@@ -89,26 +89,6 @@ print <<<EOT
 EOT;
 } print <<<EOT
 -->
-	<tbody><tr class="tr3 f_two"><th><b>Icon</b></th>
-		<th>
-<!--
-EOT;
-foreach($icondb as $key=>$icon){
-print <<<EOT
--->
-		<input name="atc_iconid" type="radio" value="$key" /><img src="$imgpath/post/emotion/$icon" />
-<!--
-EOT;
-if($key%7==0){
-print <<<EOT
--->
-		<br />
-<!--
-EOT;
-}} print <<<EOT
--->
-		</th>
-	</tr></tbody>
 <!--
 EOT;
 $special && require_once PrintEot('post_special');
